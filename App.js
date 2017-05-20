@@ -1,20 +1,19 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Component } from 'react';
+import { Text, View, StyleSheet } from 'react-native';
+import { Constants } from 'expo';
 
-export default class App extends React.Component {
-  constructor(props) {
-    super();
-    props.person = "rob";
-  }
+import Map from './components/Map';
+
+export default class App extends Component {
+  state = {
+    routes: {}
+  };
+
+
   render() {
-    const { person, books } = this.props;
-    
     return (
       <View style={styles.container}>
-        <Text>Roy!</Text>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
+        <Map />
       </View>
     );
   }
@@ -23,8 +22,9 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-  },
+    paddingTop: Constants.statusBarHeight,
+    backgroundColor: '#ecf0f1',
+  }
 });
